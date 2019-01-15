@@ -115,10 +115,8 @@
   &-threadHeader {
     display: flex;
     align-items: center;
-    padding-left: @component-padding;
     line-height: 1.6em;
     cursor: pointer;
-    border-left: 2px solid @base-border-color;
 
     &::-webkit-details-marker {
       display: none;
@@ -150,9 +148,8 @@
   }
 
   &-comments {
-    padding: @component-padding;
-    padding-left: @component-padding*2 + @avatar-size; // space for avatar
-    padding-top: 0; // added by commet
+    padding-left: 50px; // space for avatar
+    padding-bottom: @component-padding;
   }
 
   &-comment  {
@@ -191,13 +188,13 @@
     }
   }
 
-  &-controls {
-    margin: @component-padding 0;
-  }
-
   &-checkbox.input-checkbox {
-    margin-right: 6px;
-    display: none;
+    margin-right: @component-padding;
+    background-color: @base-background-color;
+    box-shadow: inset 0 0 0 2px @base-border-color;
+    &:checked {
+      box-shadow: none;
+    }
   }
 
   &-commentButton {
