@@ -9,13 +9,11 @@
 
 .github-Reviews {
   flex: 1;
-  padding: @component-padding;
   overflow-y: auto;
 
   &-header {
     display: flex;
-    padding-bottom: @component-padding;
-    border-bottom: 1px solid @base-border-color;
+    padding: @component-padding;
   }
 
   &-title {
@@ -35,6 +33,7 @@
   &-progessBar {
     width: 5em;
     margin-left: @component-padding;
+    background-color: @base-border-color;
   }
 }
 
@@ -42,8 +41,11 @@
 // Review ----------------------------------------------
 
 .github-Review {
-  margin-top: @component-padding*2;
+  padding: @component-padding*1.5;
   font-size: @font-size-body;
+  border-top: 1px solid @base-border-color;
+  background-color: @base-background-color;
+
   &-icon  {
     vertical-align: -3px;
     &.icon-check {
@@ -102,26 +104,29 @@
 
   &-thread {
     position: relative;
-    margin-top: @component-padding/2;
-    border: 1px solid @base-border-color;
-    border-radius: @component-border-radius;
-    background-color: mix(@base-background-color, @tool-panel-background-color, 33%);
-
-    &[open] {
-      background-color: @base-background-color;
-    }
+    margin-top: @component-padding;
 
     .github-Review-avatar {
       position: absolute;
-      left: @component-padding;
+      margin-left: -24px;
     }
   }
 
   &-threadHeader {
     display: flex;
     align-items: center;
-    padding: @component-padding;
+    padding-left: @component-padding;
+    line-height: 1.6em;
     cursor: pointer;
+    border-left: 2px solid @base-border-color;
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+  }
+
+  &-thread.is-resolved .github-Review-threadHeader {
+    border-color: @background-color-info;
   }
 
   &-path {
@@ -144,17 +149,10 @@
     margin-right: @component-padding*2;
   }
 
-  &-checkbox {
-    flex: 1;
-    text-align: right;
-    white-space: nowrap;
-  }
-
   &-comments {
     padding: @component-padding;
-    padding-left: @component-padding + @avatar-size + 5px; // space for avatar
+    padding-left: @component-padding*2 + @avatar-size; // space for avatar
     padding-top: 0; // added by commet
-    border-top: 1px solid @base-border-color;
   }
 
   &-comment  {
@@ -191,6 +189,15 @@
         font-size: 14px;
       }
     }
+  }
+
+  &-controls {
+    margin: @component-padding 0;
+  }
+
+  &-checkbox.input-checkbox {
+    margin-right: 6px;
+    display: none;
   }
 
   &-commentButton {
